@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import './styles.css';
 import { Link } from 'react-router-dom'
+
 import { useGetAllMoviesQuery } from '../features/APISlice'
 
-export default function Home() {
+export default function Movies() {
 
     const { data, error, isLoading } = useGetAllMoviesQuery()
-    const [scrollPosition, setScrollPosition] = useState(0);
-
 
     return (
-
         <body>
             <div class="box-wrapper">
                 <div id="box1">
@@ -20,40 +18,24 @@ export default function Home() {
                 <div id="box2">
                     <nav>
                         <ul className="navbar">
-                            <Link to='/movies'>
-                                <li><a href="#">Latest Movies</a></li>
-                            </Link>
-
-                            <li><a href="#">Upcoming Movies</a></li>
-
-                            <Link to='/events'>
-                                <li><a href="#">Nearby Events</a></li>
+                            <Link to='/'>
+                                <li><a href="#">Back to Main page</a></li>
                             </Link>
 
                         </ul>
                     </nav>
                 </div>
-                {data &&
-                    <div id='mov'>
-                        {data.map((dt) => (
-                            <div>
-                                {/* <p>{mv.name}</p> */}
-                                <img src={dt.image_url} alt="" width="100%" height="100%" />
 
-                            </div>
-
-                        ))}
-                    </div>
-                }
                 <div id="box1">
-                    <p id='recomm'>Recommended movies</p>
+                    <p id='recomm'>Latest Movies</p>
                     <br></br>
                     {data &&
                         <div id='mov'>
                             {data.map((dt) => (
                                 <div>
-                                    {/* <p>{mv.name}</p> */}
-                                    <img src={dt.image_url} alt="" width="100%" height="100%" />
+                                    <Link to={`${dt.id}`}>
+                                        <img src={dt.image_url} alt="" width="100%" height="100%" />
+                                    </Link>
                                     <button id='book'>Book</button>
                                 </div>
 

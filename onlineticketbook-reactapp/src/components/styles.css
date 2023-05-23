@@ -54,11 +54,8 @@ body {
 
 #mov {
     border: solid 1px blue;
-    /* overflow: scroll; */
     display: flex;
     flex-direction: row;
-    /* width: fit-content */
-
 }
 
 #recomm {
@@ -82,6 +79,8 @@ body {
     border: 1px solid rgb(248, 68, 100);
     display: block;
     cursor: pointer;
+    position: relative;
+    outline-offset: 3px;
 }
 
 #box3 {
@@ -139,11 +138,78 @@ body {
     text-align: center;
     float: right;
     cursor: text;
-    /* width: calc(100% - 134px);
-    max-width: 549px; */
     background-color: rgb(255, 255, 255);
     border: 1px solid rgb(238, 238, 238);
     border-radius: 4px;
     height: 35px;
     width: 150px;
+}
+
+.details {
+    border: solid 1px blue;
+    display: flex;
+    flex-direction: row;
+}
+
+.movinticketbook {
+    color: #f4f4f4;
+    background-color: gray;
+    float: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: -webkit-max-content;
+    width: max-content;
+    max-width: 70%;
+}
+
+
+.theatrlst {
+    display: list-item;
+    float: left;
+    flex-direction: row;
+    text-align: left;
+    font-weight: 700;
+    color: #333;
+}
+
+.show {
+    display: flex;
+    flex: 2;
+    padding: 40px;
+    justify-content: right;
+    column-gap: 30px;
+    color: green;
+    cursor: pointer;
+    /* border: 1px solid #ccc; */
+}
+
+.qr {
+    display: flex;
+    padding: 10px;
+    border: solid 1px green
+}
+
+.container {
+    overflow: scroll;
+    border: solid 1px blue;
+    display: flex;
+}
+
+.left-div {
+    box-sizing: border-box;
+    height: fit-content;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    text-align: center;
+
+}
+
+.right-div {
+    text-align: left;
+    padding-left: 40px;
+    font-size: 180%;
+
 }

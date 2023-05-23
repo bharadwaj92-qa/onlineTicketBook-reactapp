@@ -5,15 +5,18 @@ export const moviesApi = createApi({
     reducerPath: 'moviesApi',
     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:4000' }),
     endpoints: (builder) => ({
-        getFoodByName: builder.query({
-            query: (name) => `/${name}`,
+        getMovieById: builder.query({
+            query: (id) => `movies/${id}`,
         }),
         getAllMovies: builder.query({
             query: () => `/movies`,
+        }),
+        getAllEvents: builder.query({
+            query: () => `/events`,
         }),
     }),
 })
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetFoodByNameQuery, useGetAllMoviesQuery } = moviesApi
+export const { useGetMovieByIdQuery, useGetAllMoviesQuery, useGetAllEventsQuery } = moviesApi
