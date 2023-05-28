@@ -13,7 +13,13 @@ export default function Finalbook() {
     const date = useSelector(state => state.form.date)
 
 
-    const QRCodeGenerator = ({ text }) => {
+    const qrCodeTexts = [];
+    qrCodeTexts.push(movie);
+    qrCodeTexts.push(date);
+    qrCodeTexts.push(ticket);
+
+    const QRCodeGenerator = ({ texts }) => {
+        const text = texts.join('\n');
 
         return (
             <div>
@@ -41,7 +47,7 @@ export default function Finalbook() {
 
                 <div class='container'>
                     <div class="qr">
-                        <QRCodeGenerator text={qrCodeText} />
+                        <QRCodeGenerator texts={qrCodeTexts} />
                     </div>
                     <div class='right-div'>
                         <p><b>Movie name: </b>{movie}</p>
